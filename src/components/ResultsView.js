@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Column, Row } from 'simple-flexbox';
 import ResultsGraph from "./ResultsGraph";
+import axios from "axios/index";
 
 class ResultsView extends Component {
   
@@ -10,43 +11,76 @@ class ResultsView extends Component {
       a : 10,
       b : 20,
       c : 30,
-      d : 40
+      d : 40,
+      high: 40,
     };
   }
   
   componentDidMount() {
+    console.log("componentDidMount");
+    
+    (async () => {
+      try {
+        const tempArr = await this.getScores();
+        console.log("tempArr : " + tempArr);
   
+        console.log(typeof(tempArr));
+        
+        const string = JSON.stringify(tempArr);
+        const json = JSON.parse(string);
+        console.log(json);
+        
+        this.setState({
+          a: json.a,
+          b: json.b,
+          c: json.c,
+          d: json.d,
+          high: json.high
+        });
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }
+  
+  async getScores() {
+    console.log("ResultsView @ getScores");
+    
+    // /video-tutorial/bookmark-list/?email=marc@akaon.com
+    const req = await axios.get('http://localhost:3001/getScores');
+    return req.data;
   }
   
   render() {
     return (
       <Column flexGrow={1}>
         <Row horizontal='center'>
-          <h1>Score 결과!</h1>
+          <h1>점수 결과!</h1>
         </Row>
+        
         <Row vertical='center'>
           <Column flexGrow={1} horizontal='center'>
             <h3> 1조 </h3>
-            <span> {this.state.a} points! </span>
+            <span> {this.state.a} 점! </span>
           </Column>
           <Column flexGrow={1} horizontal='center'>
             <h3> 2조 </h3>
-            <span> {this.state.b} points! </span>
+            <span> {this.state.b} 점! </span>
           </Column>
   
           <Column flexGrow={1} horizontal='center'>
             <h3> 3조 </h3>
-            <span> {this.state.c} points! </span>
+            <span> {this.state.c} 점! </span>
           </Column>
           
           <Column flexGrow={1} horizontal='center'>
             <h3> 4조 </h3>
-            <span> {this.state.d} points! </span>
+            <span> {this.state.d} 점! </span>
           </Column>
         </Row>
         
         <br/><br/>
-        <ResultsGraph a={this.state.a} b={this.state.b} c={this.state.c} d={this.state.d} high={this.state.d} />
+        <ResultsGraph a={this.state.a} b={this.state.b} c={this.state.c} d={this.state.d} high={this.state.high} />
       </Column>
     );
   }
