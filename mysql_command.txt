@@ -1,0 +1,17 @@
+
+CREATE SCHEMA `my_db` DEFAULT CHARACTER SET utf8 ;
+
+
+create table Groups_yg( id int not null, label varchar(256), score int, primary key(id) );
+
+insert into Groups_yg (id, label, score) values(0, '1조', 0);
+insert into Groups_yg (id, label, score) values(1, '2조', 0);
+insert into Groups_yg (id, label, score) values(2, '3조', 0);
+insert into Groups_yg (id, label, score) values(3, '4조', 0);
+
+
+select * from Groups_yg;
+
+
+update Group_yg set label='4조' where id=3;
+

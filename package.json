@@ -23,7 +23,13 @@
     "react-select": "latest",
     "reactstrap": "latest",
     "recharts": "^1.0.0-beta.0",
-    "simple-flexbox": "latest"
+    "simple-flexbox": "latest",
+    "cors":"^2.8.4",
+    "password-generator": "^2.1.0",
+    "canvasjs":"^1.8.1",
+    "axios": "^0.18.0",
+    "jquery": "^3.3.1",
+    "popper":"^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

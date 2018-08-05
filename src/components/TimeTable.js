@@ -11,7 +11,7 @@ class TimeTable extends Component {
     
     return (
       <div>
-        <img className="images_fit" src={imgName} style={imgStyle} />
+        <img className="images_fit" src={imgName} style={imgStyle} alt="description"/>
       </div>
     );
   }

@@ -8,10 +8,12 @@ import { CanvasJSChart } from '../libs/canvasjs.react';
 
 class ResultsGraph extends Component {
   render() {
-    const temp1 = (this.props.a === this.props.high ? `"Highest"`: `${this.props.a}`);
-    const temp2 = (this.props.b === this.props.high ? `"Highest"`: `${this.props.b}`);
-    const temp3 = (this.props.c === this.props.high ? `"Highest"`: `${this.props.c}`);
-    const temp4 = (this.props.d === this.props.high ? `"Highest"`: `${this.props.d}`);
+    let temp1, temp2, temp3, temp4;
+  
+    temp1 = (this.props.a === this.props.high ? `"Highest"`: `${this.props.a}`);
+    temp2 = (this.props.b === this.props.high ? `"Highest"`: `${this.props.b}`);
+    temp3 = (this.props.c === this.props.high ? `"Highest"`: `${this.props.c}`);
+    temp4 = (this.props.d === this.props.high ? `"Highest"`: `${this.props.d}`);
     
     const options = {
       animationEnabled: true,
