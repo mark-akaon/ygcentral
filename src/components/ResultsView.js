@@ -47,7 +47,7 @@ class ResultsView extends Component {
     console.log("ResultsView @ getScores");
     
     // /video-tutorial/bookmark-list/?email=marc@akaon.com
-    const req = await axios.get('http://localhost:3001/getScores');
+    const req = await axios.get('http://13.209.73.226:3001/getScores');
     return req.data;
   }
   

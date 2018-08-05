@@ -25,7 +25,7 @@ class GetScore extends Component {
   async postStoreScoreData(selectedLabel, points) {
     console.log("postStoreScoreData @ selectedLabel : " + selectedLabel + " , points : " + points);
     
-    const req = await axios.post('http://localhost:3001/api/form-submit-url', {
+    const req = await axios.post('http://13.209.73.226:3001/api/form-submit-url', {
       labels: selectedLabel,
       score: points
     });
