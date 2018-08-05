@@ -19,7 +19,8 @@ app.engine('html', require('ejs').renderFile);
 
 
 // Set up a whitelist and check against it:
-const whitelist = ['http://localhost:3001', 'http://localhost:3000']
+//const whitelist = ['http://localhost:3001', 'http://localhost:3000']
+const whitelist = ['http://13.209.73.226:3001', 'http://13.209.73.226:3000']
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
@@ -31,10 +32,17 @@ const corsOptions = {
 }
 
 // Then pass them to cors:
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 // Then use it before your routes are set up:
-//app.use(cors());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors());
+
+var allowCrossDomain = function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*"); // allow requests from any other server
+	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE'); // allow these verbs
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Cache-Control");
+}
+//app.use(allowCrossDomain); // plumbing it in as middleware
+
 // parse application/json
 app.use(bodyParser.json());
 
