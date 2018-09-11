@@ -8,11 +8,11 @@ class ResultsView extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      a : 10,
-      b : 20,
-      c : 30,
-      d : 40,
-      high: 40,
+      a : 560,
+      b : 860,
+      c : 400,
+      d : 500,
+      high: 860,
     };
   }
   
